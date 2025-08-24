@@ -54,9 +54,11 @@ p {
     transition: transform 0.3s ease;
 }
 
+/* A regra que aplica a animação na logo está aqui. */
 .logo img:hover {
-    transform: translateY(-5px);
+    animation: jackpot-vibration 0.5s linear infinite;
 }
+
 
 /* Links do menu */
 .nav-links {
@@ -197,64 +199,55 @@ p {
     font-size: 14px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 1024px) {
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-video video,
-    .hero-video iframe {
-        width: 100%;
-        height: auto;
-        margin-top: 20px;
-    }
+/* Animação que faz o botão vibrar no estilo Jackpot */
+@keyframes jackpot-vibration {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-@media (max-width: 768px) {
-    /* Exibe o botão de menu e esconde os links do cabeçalho */
-    .nav-links { 
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #fff; /* Fundo branco para o menu */
-        padding: 20px 0;
-        position: absolute;
-        top: 100%; /* Posiciona o menu abaixo do cabeçalho */
-        left: 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .nav-links a {
-        padding: 15px 20px;
-        text-align: center;
-        width: 100%;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .cta-button { 
-        display: none; 
-    }
-    
-    .menu-toggle { 
-        display: block; 
-        font-size: 28px;
-        transition: transform 0.3s ease;
-    }
+/* Estilo para os links da navegação */
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden; /* Esconde o texto que não está visível */
+    padding: 0; /* Remove o padding padrão para a animação funcionar */
+    transition: none; /* Desabilita a transição de cor para evitar conflito */
+    height: 1.2em; /* Define uma altura fixa para a roleta */
+}
 
-    /* Estado ativo do menu (visível) */
-    .nav-links.active {
-        display: flex;
-    }
+/* O contêiner de texto que será animado */
+.link-text-container {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-    /* Animação do ícone do menu quando ativo */
-    .menu-toggle.active {
-        transform: rotate(90deg);
-    }
-    
-    .hero-text h2 { font-size: 2.2rem; }
-    .hero-text p { font-size: 1rem; }
+/* Os textos original e de hover dentro do link */
+.roulette-link span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2em;
+    padding: 0;
+}
+
+/* Move o contêiner de texto para cima com o hover */
+.roulette-link:hover .link-text-container {
+    transform: translateY(-50%); /* Move para cima para mostrar o segundo texto */
+}
+
+/* Cor dos links quando o cabeçalho rola */
+.site-header.scrolled .nav-links a {
+    color: #333;
 }
