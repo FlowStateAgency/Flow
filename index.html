@@ -1,105 +1,129 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lorem Ipsum Company</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flow State Agency - Agência para influêncers</title>
+    <!-- Inclui a fonte Poppins e Montserrat do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Cabeçalho -->
-  <header class="site-header">
-    <div class="container">
-     <h1 class="logo">
-  <img src="imagens/Flowfirstlogowhite.png" alt="Logo">
-</h1>
-      <nav>
-        <a href="#">Opção01</a>
-        <a href="#">opção02</a>
-        <a href="#">opção03</a>
-        <a href="#">opção04</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <img src="imagens/Flowfirstlogowhite.png" alt="Logo">
+                </a>
+            </div>
 
-  <!-- Hero -->
-  <!-- Hero -->
-<section class="hero">
-  <div class="container hero-content">
-    <div class="hero-text">
-      <h2>Lorem ipsum dolor sit amet</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac eros vel nisl.</p>
-      <a href="#" class="btn">Call to Action</a>
-    </div>
+            <!-- Menu principal -->
+            <nav class="nav-links">
+                <a href="#servicos">Serviços</a>
+                <a href="#cases">Cases</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#blog">Blog</a>
+            </nav>
 
-    <div class="hero-video">
-      <!-- Se quiser vídeo local -->
-      <video autoplay muted loop>
-        <source src="imagens/testevideocanto.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo.
-      </video>
-    </div>
-  </div>
-</section>
+            <!-- Botão CTA -->
+            <div class="cta-button">
+                <a href="#contato">Contato</a>
+            </div>
 
-
-  <!-- Serviços -->
-  <section class="section">
-    <div class="container">
-      <h2>Serviços</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <!-- Botão menu mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
         </div>
-        <div class="card">
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac eros vel nisl.</p>
+                <a href="#contato" class="btn">Call to Action</a>
+            </div>
+
+            <div class="hero-video">
+                <video autoplay muted loop>
+                    <source src="imagens/testevideocanto.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeo.
+                </video>
+            </div>
         </div>
-        <div class="card">
-          <h3>Lorem Ipsum</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+
+    <!-- Serviços -->
+    <section class="section" id="servicos">
+        <div class="container">
+            <h2>Serviços</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <h3>Lorem Ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Cases -->
-  <section class="section alt">
-    <div class="container">
-      <h2>Cases</h2>
-      <div class="grid">
-        <div class="card">Imagem / Lorem ipsum</div>
-        <div class="card">Imagem / Lorem ipsum</div>
-        <div class="card">Imagem / Lorem ipsum</div>
-        <div class="card">Imagem / Lorem ipsum</div>
-      </div>
-    </div>
-  </section>
+    <!-- Sobre -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <h2>Sobre</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat risus nec lacus vehicula.</p>
+        </div>
+    </section>
 
-  <!-- Sobre -->
-  <section class="section">
-    <div class="container">
-      <h2>Sobre</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat risus nec lacus vehicula.</p>
-    </div>
-  </section>
+    <!-- Contato -->
+    <section class="section alt" id="contato">
+        <div class="container">
+            <h2>Contato</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="mailto:agencyflowstate@gmail.com" class="btn">Enviar Email</a>
+        </div>
+    </section>
 
-  <!-- Contato -->
-  <section class="section alt">
-    <div class="container">
-      <h2>Contato</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <a href="mailto:contato@exemplo.com" class="btn">Enviar Email</a>
-    </div>
-  </section>
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Flow State Agency</p>
+        </div>
+    </footer>
 
-  <!-- Rodapé -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Lorem Ipsum Company</p>
-    </div>
-  </footer>
+    <!-- Script futuro para menu mobile -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            // Adiciona ou remove a classe 'active' para mostrar/esconder o menu
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Opcional: Fecha o menu quando um link é clicado
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    });
+</script>
 </body>
 </html>
+
 
