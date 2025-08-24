@@ -22,7 +22,7 @@ p { margin-bottom: 16px; }
 
 
 /* Header */
-.site-header { border-bottom: 1px solid #eee; padding: 20px 0; }
+.site-header { border-bottom: 1px solid #eee; padding: px 0; }
 .site-header .container { display: flex; justify-content: space-between; align-items: center; }
 .site-header nav a { margin-left: 20px; text-decoration: none; color: #333; }
 
@@ -41,3 +41,56 @@ p { margin-bottom: 16px; }
 
 /* Rodapé */
 .site-footer { padding: 20px 0; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 14px; }
+
+/* Hero */
+.hero {
+  padding: 100px 20px;
+  background: #fafafa;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+
+/* Vídeo dentro do hero */
+.hero-video video,
+.hero-video iframe {
+  width: 400px;   /* ajuste conforme necessário */
+  height: 225px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsividade (mobile) */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-video video,
+  .hero-video iframe {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* limite para não ficar gigante */
+    margin-top: 20px;
+  }
+}
+
