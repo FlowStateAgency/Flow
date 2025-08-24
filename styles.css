@@ -1,96 +1,261 @@
-/* Reset simples */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: sans-serif; color: #333; background: #fff; line-height: 1.6; }
+/* =========================
+   RESET & BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.container { width: 90%; max-width: 1100px; margin: auto; }
-.section { padding: 60px 0; }
-.section.alt { background: #f9f9f9; }
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.6;
+}
 
-h1, h2, h3 { margin-bottom: 16px; }
-p { margin-bottom: 16px; }
+h1, h2, h3 {
+    margin-bottom: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+.site-header {
+    background: #ffffff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(117, 0, 0, 0.05);
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .logo img {
-  width: 150px;      /* ajuste o tamanho do logo */
-  height: auto;
-  transition: transform 0.3s ease; /* animação suave */
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Quando o mouse passar por cima */
 .logo img:hover {
-  transform: translateY(-10px); /* sobe 10px */
+    transform: translateY(-5px);
 }
 
+/* Links do menu */
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
 
-/* Header */
-.site-header { border-bottom: 1px solid #eee; padding: px 0; }
-.site-header .container { display: flex; justify-content: space-between; align-items: center; }
-.site-header nav a { margin-left: 20px; text-decoration: none; color: #333; }
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.2s;
+}
 
-/* Hero */
-.hero { text-align: center; padding: 100px 20px; background: #fafafa; }
-.hero h2 { font-size: 2rem; margin-bottom: 10px; }
-.hero p { max-width: 600px; margin: 0 auto 20px; }
+.nav-links a:hover {
+    color: #000000;
+}
 
-/* Botão */
-.btn { display: inline-block; padding: 10px 20px; background: #000; color: #fff; text-decoration: none; border-radius: 4px; }
-.btn:hover { background: #333; }
+/* Botão CTA */
+.cta-button a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #093512;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
 
-/* Grid */
-.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 6px; }
+.cta-button a:hover {
+    background: #333;
+}
 
-/* Rodapé */
-.site-footer { padding: 20px 0; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 14px; }
+/* Menu mobile */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
 
-/* Hero */
+/* =========================
+   HERO
+========================= */
 .hero {
-  padding: 100px 20px;
-  background: #fafafa;
+    padding: 80px 20px;
+    background: #fff;
+    color: #333;
+    text-align: center;
 }
 
 .hero-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.hero-text {
-  flex: 1;
-}
+.hero-text { flex: 1; }
 
 .hero-text h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .hero-text p {
-  margin-bottom: 20px;
-  max-width: 500px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    font-size: 1.2rem;
 }
 
-/* Vídeo dentro do hero */
 .hero-video video,
 .hero-video iframe {
-  width: 400px;   /* ajuste conforme necessário */
-  height: 225px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 500px;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* Responsividade (mobile) */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #093512;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+.btn:hover {
+    background: #333;
+    color: #fff;
+}
 
-  .hero-video video,
-  .hero-video iframe {
-    width: 100%;
-    height: auto;
-    max-width: 500px; /* limite para não ficar gigante */
-    margin-top: 20px;
-  }
+/* =========================
+   GRID & CARDS
+========================= */
+.section {
+    padding: 60px 0;
+}
+.section.alt {
+    background: #f9f9f9;
+}
+
+.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-video video,
+    .hero-video iframe {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Exibe o botão de menu e esconde os links do cabeçalho */
+    .nav-links { 
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff; /* Fundo branco para o menu */
+        padding: 20px 0;
+        position: absolute;
+        top: 100%; /* Posiciona o menu abaixo do cabeçalho */
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .nav-links a {
+        padding: 15px 20px;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .cta-button { 
+        display: none; 
+    }
+    
+    .menu-toggle { 
+        display: block; 
+        font-size: 28px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Estado ativo do menu (visível) */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Animação do ícone do menu quando ativo */
+    .menu-toggle.active {
+        transform: rotate(90deg);
+    }
+    
+    .hero-text h2 { font-size: 2.2rem; }
+    .hero-text p { font-size: 1rem; }
 }
 
