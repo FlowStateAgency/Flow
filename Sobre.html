@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sobre - Flow State Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="imagens/logoflowmenorzinho.png" alt="Logo">
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#servicos" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Serviços</span>
+                        <span class="hover-text">Serviços</span>
+                    </div>
+                </a>
+                <a href="#cases" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Cases</span>
+                        <span class="hover-text">Cases</span>
+                    </div>
+                </a>
+               <a href="sobre.html" class="roulette-link">
+    <div class="link-text-container">
+        <span class="original-text">Sobre</span>
+        <span class="hover-text">Sobre</span>
+    </div>
+</a>
+                <a href="#blog" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Blog</span>
+                        <span class="hover-text">Blog</span>
+                    </div>
+                </a>
+            </nav>
+
+            <div class="cta-button">
+                <a href="#contato">Contato</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+
+    <section class="section" id="sobre-agencia">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre a Flow State Agency</h2>
+                    <p>
+                        And I always find somethin' wrong, I've been dealin' with this stuff way too long. Runaway from all the pain and all the shame, runaway from every game. Let's have a toast for the douchebags, toast for all the assholes, toast for the scumbags, toast for all the jerk-offs that I know. Baby, I got a plan, runaway fast as you can, runaway from me, darling, runaway. Find your truth inside the song, runaway from me, runaway from the lies, runaway from all the times. Yeah, I always find somethin' wrong, toast for the pain.
+                    </p>
+                    <p>
+                        And I always find, yeah, always find somethin' wrong.
+Been dealin' with this stuff way too long.
+Toast to the douchebags, toast to the assholes.
+Baby, I got a plan, runaway fast as you can.
+Runaway from me, darling, runaway from me.
+Let's have a toast for all the scumbags, yeah.
+Runaway from the pain, runaway from the shame.
+Find your truth inside, runaway far tonight.
+                    </p>
+                    <a href="#contato" class="btn">Fale Conosco</a>
+                </div>
+                <div class="about-image">
+                    <img src="imagens/kanyeovodapascoa.jpg" alt="Equipe da Flow State Agency">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt" id="nossa-visao">
+        <div class="container">
+            <h2>Nossa Visão</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Autenticidade</h3>
+                    <p>And I always find something wrong, yeah, I been dealin' with it all too long. Let's have a toast for all the douchebags, toast for every asshole too. Baby, I got a plan, runaway fast as you can, runaway from me, darling, runaway from me.</p>
+                </div>
+                <div class="card">
+                    <h3>Crescimento</h3>
+                    <p>Let's have a toast for the douchebags, let's have a toast for the assholes. Let's make a toast for the scumbags, let's have a toast for the jerk-offs. Baby, I got a plan, runaway fast as you can, runaway from me darling, runaway far from me.</p>
+                </div>
+                <div class="card">
+                    <h3>Parceria</h3>
+                    <p>Baby, I got a plan, runaway fast as you can. Runaway from me darling, runaway from me. And I always find somethin' wrong, I been dealin' with this stuff way too long. Let's toast for the douchebags, toast for all the assholes tonight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Flow State Agency</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
