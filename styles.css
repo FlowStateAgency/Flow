@@ -29,8 +29,9 @@ p {
     max-width: 1100px;
     margin: auto;
 }
+
 /* =========================
-   HEADER
+   HEADER
 ========================= */
 .site-header {
     background: #ffffff;
@@ -50,17 +51,13 @@ p {
 .logo img {
     width: 50px;
     height: auto;
-    /* Transição para o zoom ser suave */
     transition: transform 0.3s ease; 
 }
 
-/* Regra correta para o zoom da logo */
 .logo img:hover {
-    transform: scale(1.1); /* Ajuste o valor para o tamanho do zoom que você quer */
+    transform: scale(1.1);
 }
 
-
-/* Links do menu */
 .nav-links {
     display: flex;
     gap: 24px;
@@ -70,14 +67,31 @@ p {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.2s;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    transition: none;
+    height: 1.2em;
 }
 
-.nav-links a:hover {
-    color: #000000;
+.link-text-container {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Botão CTA */
+.roulette-link span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2em;
+    padding: 0;
+}
+
+.roulette-link:hover .link-text-container {
+    transform: translateY(-50%);
+}
+
 .cta-button a {
     text-decoration: none;
     padding: 10px 20px;
@@ -89,10 +103,9 @@ p {
 }
 
 .cta-button a:hover {
-    background: #060727;
+    background: #0c9500;
 }
 
-/* Menu mobile */
 .menu-toggle {
     display: none;
     background: none;
@@ -120,7 +133,9 @@ p {
     flex-wrap: wrap;
 }
 
-.hero-text { flex: 1; }
+.hero-text {
+    flex: 1;
+}
 
 .hero-text h2 {
     font-size: 3rem;
@@ -142,7 +157,35 @@ p {
 }
 
 /* =========================
-   BUTTONS
+   PÁGINA SOBRE
+========================= */
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   REGRAS COMUNS E UTILITÁRIAS
 ========================= */
 .btn {
     display: inline-block;
@@ -154,17 +197,16 @@ p {
     font-weight: 600;
     transition: background 0.3s, color 0.3s;
 }
+
 .btn:hover {
-    background: #333;
+    background: #0c9500;
     color: #fff;
 }
 
-/* =========================
-   GRID & CARDS
-========================= */
 .section {
     padding: 60px 0;
 }
+
 .section.alt {
     background: #f9f9f9;
 }
@@ -188,6 +230,10 @@ p {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
+.no-shadow {
+    box-shadow: none !important;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -199,76 +245,19 @@ p {
     font-size: 14px;
 }
 
-/* Estilo para os links da navegação */
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    position: relative;
-    overflow: hidden; /* Esconde o texto que não está visível */
-    padding: 0; /* Remove o padding padrão para a animação funcionar */
-    transition: none; /* Desabilita a transição de cor para evitar conflito */
-    height: 1.2em; /* Define uma altura fixa para a roleta */
-}
-
-/* O contêiner de texto que será animado */
-.link-text-container {
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Os textos original e de hover dentro do link */
-.roulette-link span {
-    display: block;
-    width: 100%;
-    text-align: center;
-    line-height: 1.2em;
-    padding: 0;
-}
-
-/* Move o contêiner de texto para cima com o hover */
-.roulette-link:hover .link-text-container {
-    transform: translateY(-50%); /* Move para cima para mostrar o segundo texto */
-}
-
-/* Cor dos links quando o cabeçalho rola */
-.site-header.scrolled .nav-links a {
-    color: #333;
-}
 /* =========================
-   PÁGINA SOBRE
+   MEDIA QUERIES (RESPONSIVIDADE)
 ========================= */
-.about-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap; 
-}
-
-.about-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-image {
-    flex: 1;
-    text-align: center;
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-/* Garante o responsivo em telas menores */
 @media (max-width: 768px) {
     .about-content {
         flex-direction: column;
         text-align: center;
     }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
 
