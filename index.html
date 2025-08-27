@@ -4,16 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Flow State Agency - Agência para influêncers</title>
-    <!-- Inclui a fonte Poppins e Montserrat do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Link para o seu arquivo CSS -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Cabeçalho -->
+    <div class="preloader">
+        <video class="preloader-video" autoplay muted playsinline>
+            <source src="imagens/Kanyewestpre.mp4" type="video/mp4">
+            <source src="caminho/para/seu-video-preloader.webm" type="video/webm">
+            Seu navegador não suporta vídeos.
+        </video>
+    </div>
+    
     <header class="site-header">
         <div class="container">
-            <!-- Logo -->
             <div class="logo">
                 <a href="index.html">
                     <img src="imagens/logoflowmenorzinho.png" alt="Logo">
@@ -21,50 +25,43 @@
             </div>
 
             <nav class="nav-links">
-    <!-- Link para Serviços -->
-    <a href="#servicos" class="roulette-link">
-        <div class="link-text-container">
-            <span class="original-text">Serviços</span>
-            <span class="hover-text">Serviços</span>
-        </div>
-    </a>
-    
-    <!-- Link para Cases -->
-    <a href="#cases" class="roulette-link">
-        <div class="link-text-container">
-            <span class="original-text">Cases</span>
-            <span class="hover-text">Cases</span>
-        </div>
-    </a>
-    
-    <!-- Link para Sobre -->
-   <a href="Sobre.html" class="roulette-link">
-    <div class="link-text-container">
-        <span class="original-text">Sobre</span>
-        <span class="hover-text">Sobre</span>
-    </div>
-</a>
-    
-    <!-- Link para Blog -->
-    <a href="#blog" class="roulette-link">
-        <div class="link-text-container">
-            <span class="original-text">Blog</span>
-            <span class="hover-text">Blog</span>
-        </div>
-    </a>
-</nav>
+                <a href="services.html" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Serviços</span>
+                        <span class="hover-text">Serviços</span>
+                    </div>
+                </a>
+                
+                <a href="#cases" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Cases</span>
+                        <span class="hover-text">Cases</span>
+                    </div>
+                </a>
+                
+                <a href="Sobre.html" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Sobre</span>
+                        <span class="hover-text">Sobre</span>
+                    </div>
+                </a>
+                
+                <a href="#blog" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Blog</span>
+                        <span class="hover-text">Blog</span>
+                    </div>
+                </a>
+            </nav>
 
-            <!-- Botão CTA -->
             <div class="cta-button">
                 <a href="#contato">Contato</a>
             </div>
 
-            <!-- Botão menu mobile -->
             <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero" id="hero">
         <div class="container hero-content">
             <div class="hero-text">
@@ -82,7 +79,6 @@
         </div>
     </section>
 
-    <!-- Serviços -->
     <section class="section" id="servicos">
         <div class="container">
             <h2>Serviços</h2>
@@ -103,7 +99,6 @@
         </div>
     </section>
 
-    <!-- Sobre -->
     <section class="section" id="sobre">
         <div class="container">
             <h2>Sobre</h2>
@@ -111,62 +106,76 @@
         </div>
     </section>
 
-    <!-- Contato -->
-    <section class="section alt" id="contato">
-        <div class="container">
-            <h2>Contato</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="mailto:agencyflowstate@gmail.com" class="btn">Enviar Email</a>
-        </div>
-    </section>
-
-    <!-- Rodapé -->
-    <footer class="site-footer">
-    <div class="container footer-content">
-        <div class="footer-logo">
-            <img src="imagens/logoflowmenorzinho.png" alt="Logo Flow State Agency">
-        </div>
-
-        <div class="footer-info">
-            <p>© 2025 Flow State Agency. Todos os direitos reservados.</p>
-            <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
-        </div>
-
-        <div class="footer-social">
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                <img src="imagens/Vetor500xinstagram.png" alt="Instagram">
-            </a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <img src="imagens/Vetor500xtwitter.png" alt="Twitter">
-            </a>
-            <a href="https://facebook.com" target="_blank" aria-label="LinkedIn">
-                <img src="imagens/Vetor500xfacebook.png" alt="LinkedIn">
-            </a>
-        </div>
+   <section class="section cta-final">
+    <div class="container services-cta-container">
+        <h2>Pronto para Começar?</h2>
+        <p>Vamos transformar sua paixão em uma marca de sucesso. Fale com a gente!</p>
+        <a href="mailto:agencyflowstate@gmail.com" class="btn">Fale com a Flow</a>
     </div>
-</footer>
+</section>
 
-    <!-- Script futuro para menu mobile -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="imagens/logoflowmenorzinho.png" alt="Logo Flow State Agency">
+            </div>
+
+            <div class="footer-info">
+                <p>© 2025 Flow State Agency. Todos os direitos reservados.</p>
+                <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <img src="imagens/Vetor500xinstagram.png" alt="Instagram">
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <img src="imagens/Vetor500xtwitter.png" alt="Twitter">
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="LinkedIn">
+                    <img src="imagens/Vetor500xfacebook.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+    </footer>
+
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-        menuToggle.addEventListener('click', () => {
-            // Adiciona ou remove a classe 'active' para mostrar/esconder o menu
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
 
-        // Opcional: Fecha o menu quando um link é clicado
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
             });
         });
-    });
-</script>
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.querySelector('.preloader');
+            const preloaderVideo = document.querySelector('.preloader-video');
+            
+            // Quando o vídeo terminar de tocar, esconde o preloader.
+            preloaderVideo.addEventListener('ended', () => {
+                preloader.classList.add('hidden');
+            });
+
+            // Fallback para dispositivos que não rodam o vídeo automaticamente.
+            // Se o preloader ainda estiver visível após 5 segundos, ele será removido.
+            setTimeout(() => {
+                if (!preloader.classList.contains('hidden')) {
+                    preloader.classList.add('hidden');
+                }
+            }, 1000); 
+        });
+    </script>
 </body>
 </html>
