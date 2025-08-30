@@ -21,7 +21,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="imagens/logoflowmenorzinho.png" alt="Logo">
+                    <img src="imagens/logoflowmenorzinho-Photoroom.png" alt="Logo">
                 </a>
             </div>
 
@@ -77,7 +77,7 @@
 
             <div class="hero-video">
                 <video autoplay muted loop>
-                    <source src="imagens/testevideocanto.mp4" type="video/mp4">
+                    <source src="imagens/videocomprimido.mp4" type="video/mp4">
                     Seu navegador não suporta vídeo.
                 </video>
             </div>
@@ -180,5 +180,18 @@
             }, 1000); 
         });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('.site-header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Altera para .scrolled quando o scroll for maior que 50px
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    });
+</script>
 </body>
 </html>
