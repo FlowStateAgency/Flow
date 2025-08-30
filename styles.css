@@ -114,20 +114,26 @@ p {
     ========================================
 */
 .site-header {
-    background: var(--color-white);
-    padding: 20px 0;
+    background-color: transparent; /* Fundo transparente inicialmente */
+    padding: 15px 0; /* Diminui a altura do header */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente ao rolar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* O efeito de desfoque (blur) */
+    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
 }
 
 .site-header .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
-
 .logo img {
     width: 50px;
     height: auto;
@@ -236,7 +242,7 @@ p {
     width: 500px;
     max-width: 100%;
     border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: none; /* A sombra foi removida aqui */
 }
 
 /* Seção Sobre */
@@ -493,6 +499,26 @@ p {
 }
 
 
+/* Estilo geral da barra de rolagem */
+::-webkit-scrollbar {
+    width: 6px; /* A nova largura da barra de rolagem */
+}
+
+/* Cor da trilha da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* Totalmente transparente */
+}
+
+/* Estilo e cor do "polegar" (thumb) da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* Estilo do "polegar" ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
 /*
     ========================================
     |        MEDIA QUERIES (RESPONSIVO)    |
@@ -608,4 +634,5 @@ p {
     .timeline-item .timeline-image {
         display: none;
     }
+    
 }
