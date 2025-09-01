@@ -44,7 +44,7 @@ p {
 
 .container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1980x; /* Aumente este valor para mais espaço na tela */
     margin: auto;
 }
 
@@ -206,45 +206,63 @@ p {
     |         SEÇÕES DE CONTEÚDO           |
     ========================================
 */
-/* Seção Hero - Home */
+   
 .hero {
+    /* Centraliza o conteúdo (logo e vídeo) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
     padding: 80px 20px;
     background: var(--color-white);
     color: var(--color-text);
-    text-align: center;
+    min-height: 80vh;
+}
+
+/* O contêiner interno do herói para manter o espaçamento nas laterais */
+.hero .container {
+    width: 98%; /* Ajuste a largura para um valor maior */
+    max-width: 1400px; /* Aumenta o limite máximo para telas grandes */
+    padding: 0;
+    margin: 0; 
 }
 
 .hero-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     gap: 40px;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
-.hero-text {
-    flex: 1;
-}
-
-.hero-text h2 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero-text p {
-    margin-bottom: 20px;
-    max-width: 500px;
-    font-size: 1.2rem;
+.hero-logo {
+    width: 40vw; 
+    max-width: 700px;
+    height: auto;
+    margin-bottom: 40px;
 }
 
 .hero-video video,
 .hero-video iframe {
-    width: 500px;
-    max-width: 100%;
-    border-radius: 16px;
-    box-shadow: none; /* A sombra foi removida aqui */
+    /* Faz o vídeo ocupar a largura total do viewport (tela) */
+    width: 100vw; 
+    height: auto;
+    
+    /* Centraliza o vídeo na tela, compensando o espaço extra */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Adiciona o espaçamento nas laterais */
+    padding: 0 20px;
+    
+    border-radius: 100px;
+    box-shadow: none;
+    display: block;
 }
-
+/*
 /* Seção Sobre */
 .about-content {
     display: flex;
@@ -313,13 +331,7 @@ p {
 .services-cta-container {
     max-width: 480px; 
 }
-
-
-/*
-    ========================================
-    |         SEÇÃO DE SERVIÇOS            |
-    ========================================
-*/
+ 
 .services-hero {
     padding: 80px 20px;
     background: var(--color-light-background);
@@ -634,5 +646,16 @@ p {
     .timeline-item .timeline-image {
         display: none;
     }
-    
+  
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem; 
+    }
+
+    .hero-video video,
+    .hero-video iframe {
+        width: 100%; 
+        max-width: 100%;
+    }
+}
 }
