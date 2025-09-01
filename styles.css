@@ -536,20 +536,6 @@ p {
     |        MEDIA QUERIES (RESPONSIVO)    |
     ========================================
 */
-
-@media (min-width: 769px) {
-    .timeline-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .timeline-item-reverse {
-        flex-direction: row-reverse;
-    }
-}
-
 @media (max-width: 768px) {
     /* Header e Menu Mobile */
     .nav-links {
@@ -569,7 +555,7 @@ p {
         display: flex;
     }
 
-    /* 1. Corrige o menu mobile SEM afetar o desktop */
+    /* Corrige o menu mobile SEM afetar o desktop */
     .nav-links a {
         height: auto;
         overflow: visible;
@@ -583,7 +569,7 @@ p {
         gap: 0;
     }
 
-    /* 2. Oculta o texto duplicado no mobile */
+    /* Oculta o texto duplicado no mobile */
     .roulette-link .hover-text {
         display: none;
     }
@@ -596,10 +582,20 @@ p {
         display: block;
     }
 
-    /* Conteúdo da Página */
+    /* Seção Hero e Conteúdo */
     .hero-content {
         flex-direction: column-reverse;
         gap: 20px;
+    }
+
+    .hero-logo {
+        width: 70vw; 
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero-video {
+        display: none; /* Esta regra irá esconder o vídeo no mobile */
     }
     
     .about-content {
@@ -646,16 +642,4 @@ p {
     .timeline-item .timeline-image {
         display: none;
     }
-  
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem; 
-    }
-
-    .hero-video video,
-    .hero-video iframe {
-        width: 100%; 
-        max-width: 100%;
-    }
-}
 }
