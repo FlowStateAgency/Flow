@@ -607,7 +607,7 @@ p {
 }
 /*
     ========================================
-    |        MEDIA QUERIES (RESPONSIVO)    |
+    |     MEDIA QUERIES (RESPONSIVO)     |
     ========================================
 */
 @media (max-width: 768px) {
@@ -656,22 +656,49 @@ p {
         display: block;
     }
 
-    /* Seção Hero e Conteúdo */
+    /*
+      AJUSTES NO HERO E NO CARROSSEL
+      ==============================
+    */
+    .hero {
+        padding: 40px 20px;
+    }
+
     .hero-content {
-        flex-direction: column-reverse;
+        /* Garante que o conteúdo do herói se organize em coluna */
+        flex-direction: column; 
         gap: 20px;
+        width: 100%;
     }
 
     .hero-logo {
-        width: 70vw; 
-        max-width: 100%;
+        /* Aumenta a logo do herói para ocupar mais espaço no topo */
+        width: 80vw;
+        max-width: 400px;
         margin-bottom: 20px;
     }
 
-    .hero-video {
-        display: none; /* Esta regra irá esconder o vídeo no mobile */
+    /* Carrossel de Imagens */
+    .carousel-container {
+        padding: 20px 0;
     }
     
+    .card-carousel {
+        /* Remove o gap para usar a margem dos cards */
+        gap: 0;
+        /* Aumente o tempo da animação para um loop mais lento */
+        animation: scroll-no-cut 40s linear infinite; 
+    }
+
+    .card-image {
+        /* Agora, cada card ocupa a largura total da tela */
+        width: 100vw;
+        /* Adiciona espaçamento nas laterais do card */
+        margin: 0 10px;
+        max-width: none; /* Remove o limite de largura para desktop */
+    }
+
+    /* Seção Sobre */
     .about-content {
         flex-direction: column;
     }
