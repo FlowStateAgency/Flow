@@ -611,7 +611,7 @@ p {
     ========================================
 */
 @media (max-width: 768px) {
-    /* Header e Menu Mobile */
+    /* Header e Menu Mobile (MANTENHA ESTE BLOCO ORIGINALMENTE) */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -629,7 +629,6 @@ p {
         display: flex;
     }
 
-    /* Corrige o menu mobile SEM afetar o desktop */
     .nav-links a {
         height: auto;
         overflow: visible;
@@ -637,13 +636,11 @@ p {
     }
     
     .roulette-link .link-text-container {
-        /* Desabilita a rolagem para mobile */
         transform: none;
         flex-direction: row;
         gap: 0;
     }
 
-    /* Oculta o texto duplicado no mobile */
     .roulette-link .hover-text {
         display: none;
     }
@@ -665,14 +662,12 @@ p {
     }
 
     .hero-content {
-        /* Garante que o conteúdo do herói se organize em coluna */
         flex-direction: column; 
         gap: 20px;
         width: 100%;
     }
 
     .hero-logo {
-        /* Aumenta a logo do herói para ocupar mais espaço no topo */
         width: 80vw;
         max-width: 400px;
         margin-bottom: 20px;
@@ -684,26 +679,29 @@ p {
     }
     
     .card-carousel {
-        /* Remove o gap para usar a margem dos cards */
-        gap: 0;
-        /* Aumente o tempo da animação para um loop mais lento */
-        animation: scroll-no-cut 40s linear infinite; 
+        /* Desativa a animação de desktop no mobile */
+        animation: none;
+        /* Habilita o scroll horizontal com o dedo */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory; /* Faz os cards pararem certinho no centro */
+        gap: 15px; /* Define um espaçamento entre os cards */
     }
-
+    
+    /* Esconde a barra de rolagem horizontal */
+    .card-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    
     .card-image {
-        /* Agora, cada card ocupa a largura total da tela */
-        width: 100vw;
-        /* Adiciona espaçamento nas laterais do card */
-        margin: 0 10px;
-        max-width: none; /* Remove o limite de largura para desktop */
+        /* Define a largura para que o card se ajuste à tela */
+        width: 80vw; /* Cada card ocupa 80% da largura da tela */
+        max-width: none;
+        scroll-snap-align: center; /* Alinha o card no centro da tela ao rolar */
     }
 
-    /* Seção Sobre */
-    .about-content {
-        flex-direction: column;
-    }
-
-    /* Rodapé */
+    /* Seções de conteúdo */
+    .about-content,
     .footer-content {
         flex-direction: column;
         text-align: center;
