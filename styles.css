@@ -533,6 +533,80 @@ p {
 }
 /*
     ========================================
+    |        CAROUSEL DE IMAGENS         |
+    ========================================
+*/
+.carousel-container {
+    /* Esconde o conteúdo que transborda, crucial para o efeito */
+    overflow: hidden; 
+    width: 100%;
+    padding: 40px 0;
+}
+
+.card-carousel {
+    display: flex;
+    /* Remove o espaçamento de gap para uma transição mais suave */
+    gap: 0; 
+    white-space: nowrap; 
+    
+    /* A largura total do wrapper agora é a soma de todos os cards */
+    /* Isso é importante para a nova animação */
+    width: fit-content;
+
+    /* Ajuste o tempo para controlar a velocidade da rotação */
+    animation: scroll-no-cut 40s linear infinite; 
+}
+
+.card-image {
+    /* Impede que a imagem encolha e define o tamanho do "card" */
+    flex-shrink: 0; 
+    width: 33.33vw; 
+    max-width: 500px;
+    height: auto;
+    
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden; 
+    position: relative;
+    
+    /* Adiciona o espaçamento entre os cards aqui */
+    margin: 0 15px; 
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-image img {
+    /* Faz a imagem preencher todo o contêiner */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* Opcional: Efeito de hover */
+.card-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+/*
+    ========================================
+    |        ANIMAÇÃO DE KEYFRAMES SEM CORTE|
+    ========================================
+*/
+@keyframes scroll-no-cut {
+    0% {
+        /* Começa na posição inicial */
+        transform: translate3d(0, 0, 0); 
+    }
+    100% {
+        /* Move 50% da largura total do wrapper */
+        /* Isso move o primeiro conjunto de cards completamente para fora da tela */
+        transform: translate3d(-50%, 0, 0); 
+    }
+}
+/*
+    ========================================
     |        MEDIA QUERIES (RESPONSIVO)    |
     ========================================
 */
