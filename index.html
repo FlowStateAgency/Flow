@@ -103,33 +103,69 @@
     </div>
 </section>
 
-    <section class="section" id="servicos">
-        <div class="container">
-            <h2>Serviços</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Lorem Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="card">
-                    <h3>Lorem Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="card">
-                    <h3>Lorem Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <div class="section alt product-suite">
+    <div class="container">
+        <h2 class="section-title">Get to Know the APS Product Suite</h2>
+        
+        <div class="product-row">
+            <div class="product-info">
+                <h3>Payroll</h3>
+                <p>Run accurate payroll in hours and eliminate compliance risk with our expert tax team to focus on your people.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="product-image-container">
+                <div class="product-card">
+                    <img src="imagens/card01.png" alt="Imagem do produto Payroll">
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="section" id="sobre">
-        <div class="container">
-            <h2>Sobre</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat risus nec lacus vehicula.</p>
+        
+        <div class="product-row reverse">
+            <div class="product-info">
+                <h3>Attendance</h3>
+                <p>Track hours and manage schedules to optimize your bottom line and improve efficiency.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="product-image-container">
+                <div class="product-card">
+                    <img src="imagens/card03.png" alt="Imagem do produto Attendance">
+                </div>
+            </div>
         </div>
-    </section>
 
+        <div class="product-row">
+            <div class="product-info">
+                <h3>Core HR</h3>
+                <p>Simplify the employee lifecycle across your organization from hire to retire, freeing up valuable time and resources.</p>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="product-image-container">
+                <div class="product-card">
+                    <img src="imagens/card04.jpg" alt="Imagem do produto Core HR">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="section about">
+    <div class="container">
+        <div class="about-content-new">
+            <div class="about-text-new">
+                <h2>Quem Somos Nós</h2>
+                <p>Nossa jornada começou com a paixão por transformar ideias em realidade digital. Acreditamos que cada projeto é uma oportunidade única de criar experiências memoráveis e soluções que realmente fazem a diferença para nossos clientes.</p>
+                <p>Com uma equipe dedicada e focada em inovação, estamos sempre explorando novas tecnologias para oferecer os melhores resultados. Nosso compromisso é com a excelência e a parceria de longo prazo.</p>
+                <a href="#" class="btn">Conheça Nossa Equipe</a>
+            </div>
+            
+            <div class="about-video-container">
+                <video class="about-video" autoplay muted loop>
+                    <source src="imagens/videotstsobre0002.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
     <section class="section cta-final">
         <div class="container services-cta-container">
             <h2>Pronto para Começar?</h2>
@@ -253,6 +289,33 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const preloader = document.querySelector('.preloader');
+        const preloaderVideo = document.querySelector('.preloader-video');
+
+        // VERIFICA SE O MARCADOR JÁ EXISTE NO NAVEGADOR
+        if (sessionStorage.getItem('preloaderShown')) {
+            // Se o marcador existe, esconde o preloader imediatamente
+            preloader.classList.add('hidden');
+        } else {
+            // Se o marcador NÃO existe, executa a animação
+            preloaderVideo.play();
+            preloaderVideo.addEventListener('ended', () => {
+                preloader.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+
+            // Cria o marcador para a sessão atual
+            sessionStorage.setItem('preloaderShown', 'true');
+        }
+    });
+
+    window.addEventListener('load', function() {
+        if (!sessionStorage.getItem('preloaderShown')) {
+            document.body.style.overflow = 'hidden';
+        }
+    });
 </script>
 
 </body>
