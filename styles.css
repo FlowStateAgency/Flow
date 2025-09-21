@@ -31,7 +31,18 @@ body {
     background: var(--color-white);
     line-height: 1.6;
 }
-
+body {
+    -webkit-user-select: none; /* Para Chrome, Safari e Opera */
+    -moz-user-select: none;    /* Para Firefox */
+    -ms-user-select: none;     /* Para Internet Explorer/Edge */
+    user-select: none;         /* Propriedade padrão */
+}
+.logo img {
+    pointer-events: auto;
+}
+img, video {
+    pointer-events: none; /* Impede clique e arraste em imagens e vídeos */
+}
 h1, h2, h3 {
     margin-bottom: 16px;
     font-family: var(--font-heading);
