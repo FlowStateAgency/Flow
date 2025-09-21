@@ -63,10 +63,6 @@ p {
     padding: 60px 0;
 }
 
-.section.alt {
-    background: var(--color-light-background);
-}
-
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -274,52 +270,231 @@ p {
     display: block;
 }
 /*
-/* Seção Sobre */
-.about-content {
+/*
+    ========================================
+    |        SEÇÃO SOBRE (NOVO LAYOUT)     |
+    ========================================
+*/
+.about {
+    /* Aumenta o padding para deixar a seção maior */
+    padding: 100px 0;
+    background: var(--color-white);
+}
+
+.about-content-new {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 60px; /* Reduz o espaçamento entre o texto e o vídeo */
     flex-wrap: wrap;
 }
 
-.about-text {
+.about-text-new {
     flex: 1;
     min-width: 300px;
+    max-width: 50%; /* Limita a largura do texto para melhor leitura */
 }
 
-.about-image {
+.about-text-new h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-text-new p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-video-container {
     flex: 1;
-    text-align: center;
+    min-width: 300px;
+    max-width: 45%;
+    
+    /* Remove a sombra e a moldura, deixando o visual mais limpo */
+    border-radius: 20px;
+    box-shadow: none; 
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    background: transparent;
 }
 
-.about-image img {
+.about-video {
     width: 100%;
-    max-width: 400px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px; /* Aplica a borda arredondada diretamente no vídeo */
 }
 
-/* Seção Grid (Serviços e outros) */
-.grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* Importante: Mantenha este bloco para garantir a responsividade em telas menores.
+    (Não precisa alterar nada aqui)
+*/
+@media (max-width: 900px) {
+    .about-content-new {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .about-text-new,
+    .about-video-container {
+        max-width: 100%;
+    }
 }
 
-.card {
-    background: var(--color-white);
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Responsividade para a nova seção Sobre */
+@media (max-width: 900px) {
+    .about-content-new {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .about-text-new,
+    .about-video-container {
+        max-width: 100%;
+    }
+}
+/* Aumenta a largura máxima do contêiner para preencher mais o site */
+.container {
+    width: 90%;
+    max-width: 2200px;
+    margin: auto;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+.section-title {
+    font-size: 2.5rem;
+    color: var(--color-white); /* Ou uma cor escura, dependendo do background */
+    margin-bottom: 40px;
 }
 
+/*
+    ========================================
+    |   AJUSTES PARA O NOVO LAYOUT DE PRODUTOS   |
+    ========================================
+*/
+/*
+    ========================================
+    |   AJUSTES PARA O NOVO LAYOUT DE PRODUTOS   |
+    ========================================
+*/
+/* Fundo da seção para a estética Neumorphism */
+.section.alt {
+    background: var(--color-light-background); 
+    color: var(--color-text);
+}
+
+/* Estilos para o título da seção */
+.section-title {
+    font-size: 2.5rem;
+    color: var(--color-text); 
+    margin-bottom: 40px;
+}
+
+/* Estilos das linhas de conteúdo (texto + imagem) */
+.product-row {
+    display: flex;
+    align-items: center;
+    /* Reduz o espaçamento entre as colunas para um visual mais coeso */
+    gap: 50px; 
+    margin-bottom: 60px;
+    flex-direction: row; 
+}
+
+/* Inverte a ordem para as linhas pares (2ª, 4ª, etc.) */
+.product-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Estilos para a coluna de texto */
+.product-info {
+    flex: 1;
+    max-width: 50%;
+    /* Adiciona um pouco de espaço interno para não ficar "colado" */
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 2.2rem;
+    color: var(--color-text);
+}
+
+.product-info p {
+    color: var(--color-text);
+}
+
+/* Deixa o botão mais bonito e destacado */
+.learn-more {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--color-primary); 
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.learn-more:hover {
+    background: var(--color-secondary);
+    /* Adiciona um pequeno efeito de elevação */
+    transform: translateY(-2px);
+}
+
+/* Estilos para a coluna de imagem/card */
+.product-image-container {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--color-light-background); 
+    
+    /* Sombras refinadas para um efeito mais elegante */
+    box-shadow: 
+        10px 10px 20px rgba(0, 0, 0, 0.05), 
+        -10px -10px 20px rgba(255, 255, 255, 1);
+    
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(0.98);
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.05),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+}
+
+.product-card img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+/*
+    ========================================
+    |       MEDIA QUERIES (RESPONSIVO)    |
+    ========================================
+*/
+@media (max-width: 768px) {
+    .product-row,
+    .product-row.reverse {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .product-info,
+    .product-image-container {
+        max-width: 100%;
+        text-align: center;
+    }
+}
 /* Seção de CTA Final */
 .cta-final {
     text-align: center;
