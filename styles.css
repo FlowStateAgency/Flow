@@ -648,7 +648,388 @@ p {
 .footer-social a:hover img {
     transform: scale(1.1);
 }
+/* styles.css */
 
+/* styles.css */
+
+/*
+    ========================================
+    |     NOVA SEÇÃO DE SERVIÇOS (GRID)     |
+    ========================================
+*/
+.services-grid-section {
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: grid;
+    /* Cria colunas que se ajustam automaticamente ao tamanho da tela */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px; /* Espaçamento entre os cards */
+}
+
+.service-card {
+    position: relative; /* Essencial para a borda animada */
+    border-radius: 16px;
+    overflow: hidden; /* Garante que a borda não vaze */
+    padding: 3px; /* Espessura da borda visível */
+    background: transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de elevação e sombra ao passar o mouse */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* A MÁGICA DA BORDA ANIMADA */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%; /* Tamanho grande para o gradiente girar suavemente */
+    height: 200%;
+    z-index: 1; /* Fica atrás do conteúdo */
+    background: conic-gradient(
+        from var(--angle),
+        transparent 20%,
+        var(--color-secondary), /* Cor mais clara da sua paleta */
+        var(--color-primary),   /* Cor mais escura da sua paleta */
+        transparent 80%
+    );
+    transform: translate(-50%, -50%);
+    
+    /* A animação que gira o gradiente */
+    animation: rotate-gradient 6s linear infinite;
+    
+    /* Começa invisível e aparece no hover */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Animação que atualiza a variável --angle */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-gradient {
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* CONTEÚDO INTERNO DO CARD */
+.card-content {
+    position: relative;
+    z-index: 2; /* Fica na frente da borda */
+    background: var(--color-light-background); /* Usa a cor de fundo do seu tema */
+    padding: 30px;
+    border-radius: 14px; /* Um pouco menor que o card pai */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-icon {
+    margin-bottom: 20px;
+}
+
+.card-icon img {
+    width: 50px;
+    height: 50px;
+    pointer-events: all; /* Permite interagir com o ícone se necessário */
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.7;
+    flex-grow: 1; /* Empurra a lista para baixo se os cards tiverem alturas diferentes */
+}
+
+/* Estilização da lista "O que inclui" */
+.card-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.card-content ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.card-content ul li::before {
+    content: '✓'; /* Ou '•', '→' */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+/*
+    ========================================
+    |       ESTILOS PÁGINA DE SERVIÇOS     |
+    ========================================
+*/
+
+/* Hero Section da Página de Serviços */
+.services-hero-page {
+    background-color: var(--color-white);
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Seção de Serviços em Grid (Inspirado em Awwwards) */
+.services-grid-section {
+    padding: 80px 0;
+    background-color: var(--color-light-background);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 3px; /* Espessura da borda */
+    background: transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* A MÁGICA DA BORDA ANIMADA */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-gradient {
+  to { --angle: 360deg; }
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    z-index: 1;
+    background: conic-gradient(
+        from var(--angle),
+        transparent 20%,
+        var(--color-secondary),
+        var(--color-primary),
+        transparent 80%
+    );
+    transform: translate(-50%, -50%);
+    animation: rotate-gradient 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* Conteúdo interno do card */
+.card-content {
+    position: relative;
+    z-index: 2;
+    background: var(--color-white);
+    padding: 35px 30px;
+    border-radius: 14px; /* Menor que o card pai */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-icon {
+    margin-bottom: 20px;
+}
+
+.card-icon img {
+    width: 45px;
+    height: 45px;
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.7;
+    flex-grow: 1; /* Faz o texto crescer e empurra a lista para baixo */
+}
+
+.card-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.card-content ul li {
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.card-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+/* Seção de Processo (Timeline) */
+.process-timeline-section {
+    padding: 100px 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #e0e0e0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    padding: 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-item:hover .timeline-content{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.timeline-step {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--color-light-background);
+    z-index: 0;
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Responsividade para a Timeline e Hero */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 15px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+}
 /*
     ========================================
     |          BOTÃO DE MENU         |
