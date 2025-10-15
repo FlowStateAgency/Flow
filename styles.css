@@ -652,6 +652,78 @@ p {
 
 /* styles.css */
 
+.about-us-section {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.about-us-section .section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    color: var(--color-text);
+}
+
+.about-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.about-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-text-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-text-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.about-text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-visual-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-video-wrapper,
+.about-image-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-video-wrapper video,
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsividade para a nova seção */
+@media (max-width: 900px) {
+    .about-row,
+    .about-row.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-text-content,
+    .about-visual-content {
+        max-width: 100%;
+    }
+}
 /*
     ========================================
     |     NOVA SEÇÃO DE SERVIÇOS (GRID)     |
@@ -1308,4 +1380,223 @@ p {
     .timeline-item .timeline-image {
         display: none;
     }
+/*
+    ========================================
+    |         ESTILOS PÁGINA SOBRE         |
+    ========================================
+*/
+
+/*
+    =================================================
+    |   SEÇÃO VALORES V3 (EFEITO 3D INTERATIVO)     |
+    =================================================
+*/
+.values-section-v3 {
+    padding: 100px 0;
+    background-color: #f4f4f4; /* Um fundo levemente diferente para destacar a seção */
 }
+
+.values-section-v3 .section-title {
+    text-align: center;
+    color: var(--color-text);
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+}
+
+.values-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    /* A propriedade 'perspective' no container pai é crucial para o efeito 3D dos filhos */
+    perspective: 1000px;
+}
+
+.value-card-3d {
+    position: relative;
+    /* Isso garante que o card interno possa se mover em 3D */
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-out; /* Suaviza o retorno à posição inicial */
+}
+
+.value-card-3d:hover {
+    /* Remove a transição durante o movimento para uma resposta instantânea ao mouse */
+    transition: none;
+}
+
+.card-content-3d {
+    background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Importante para o efeito de brilho */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    
+    /* A transição aqui é para o brilho e outros efeitos, não para a rotação */
+    transition: box-shadow 0.4s ease;
+    
+    /* Prepara o card para receber as transformações 3D do JS */
+    transform: translateZ(0); /* Força a aceleração de hardware */
+}
+
+.value-card-3d:hover .card-content-3d {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* EFEITO DE BRILHO QUE SEGUE O MOUSE */
+.card-content-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), 
+                                rgba(255, 255, 255, 0.4) 0%, 
+                                rgba(255, 255, 255, 0) 25%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.value-card-3d:hover .card-content-3d::before {
+    opacity: 1;
+}
+
+/* Conteúdo do Card */
+.card-inner-content {
+    /* Coloca o conteúdo acima do brilho */
+    position: relative;
+    z-index: 2;
+}
+
+.card-inner-content .card-icon img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 20px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+.value-card-3d:hover .card-icon img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.card-inner-content h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-inner-content p {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+/*
+    ========================================
+    |     AJUSTES PARA VALORES (v2)        |
+    ========================================
+*/
+.values-section-v2 {
+    padding: 80px 0;
+    text-align: center; /* Centraliza o título e a descrição */
+    background-color: var(--color-light-background); /* Sugestão de fundo leve */
+}
+
+.values-section-v2 .section-title {
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin: 0 auto 50px auto; /* Centraliza a descrição e adiciona margem inferior */
+    color: #555;
+    line-height: 1.6;
+}
+
+.values-grid-v2 {
+    display: grid;
+    /* 2 colunas para desktop. Ajuste para 3 se preferir um visual mais compacto. */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    max-width: 1000px; /* Limita a largura do grid para centralizá-lo */
+    margin: 0 auto; /* Centraliza o grid */
+}
+
+.value-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: left; /* Alinha o conteúdo do card à esquerda */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Garante que todos os cards tenham a mesma altura */
+    display: flex;
+    flex-direction: column;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.value-card-content {
+    flex-grow: 1;
+}
+
+.value-card-content h4 {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.value-card-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.value-card .card-icon {
+    margin-bottom: 15px;
+}
+
+.value-card .card-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .values-grid-v2 {
+        grid-template-columns: 1fr; /* Volta para 1 coluna em telas menores */
+        max-width: 500px;
+    }
+    
+    .values-section-v2 .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+    }
+
+    .value-card {
+        text-align: center; /* Centraliza o conteúdo dos cards em mobile */
+    }
+    
+    .value-card-content {
+        align-items: center;
+    }
+}
+}
+
