@@ -1,4 +1,4 @@
-/*
+/*/*
     ========================================
     |             ESTILOS GLOBAIS          |
     ========================================
@@ -1598,5 +1598,68 @@ p {
         align-items: center;
     }
 }
+/*
+    ========================================
+    |        ESTILOS PÁGINA DE SUPORTE     |
+    ========================================
+*/
+
+/* Hero Section já foi ajustada acima (padding-top) */
+
+/* 1. CENTRALIZAÇÃO DO TÍTULO DA SEÇÃO */
+.section-title-modern {
+    font-size: 2.2rem;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 40px;
+    text-align: center; /* Centraliza o título */
 }
+
+/* 2. AJUSTE DO GRID DE CANAIS DE ATENDIMENTO */
+.services-grid-section {
+    padding: 60px 0;
+}
+
+.services-grid {
+    /* Centraliza o bloco de cards na página */
+    max-width: 1000px; 
+    margin: 0 auto; 
+    /* Garante que o grid do serviços tenha espaço */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* 3. CENTRALIZAÇÃO INTERNA DO CONTEÚDO DO CARD */
+.service-card .card-content {
+    /* Centraliza todo o conteúdo dentro do card (ícone, título, texto) */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+/* 4. CENTRALIZAÇÃO DO FAQ */
+.faq-container-v2 {
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o bloco do FAQ */
+}
+
+/* 5. ESTILO FINAL DA CITAÇÃO */
+.final-quote-section {
+    background-color: var(--color-light-background);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.final-quote-section p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    max-width: 900px;
+    margin: 0 auto; /* Centraliza a citação */
+    color: var(--color-text);
+}
+}
+
 
