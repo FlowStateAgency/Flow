@@ -310,19 +310,20 @@
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
-    </script>
-
-    <script>
+   
+      // CONFIGURAÇÕES ATUALIZADAS PARA ANIMAÇÃO MAIS RÁPIDA E FLUÍDA
         ScrollReveal().reveal('[data-scroll]', {
-            delay: 150, // Atraso leve antes de começar
-            duration: 800, // Duração da animação
-            origin: 'bottom', // O elemento vem de baixo
-            distance: '30px', // Distância que o elemento sobe
-            opacity: 0, // Inicia totalmente transparente
-            easing: 'ease-in-out', 
-            interval: 150, // Aplica um atraso sutil entre elementos irmãos (para aparecer um após o outro)
-            mobile: false // Desativa em mobile para melhorar performance, se necessário (remova se quiser em mobile)
+            delay: 50, // Diminuído o atraso de 150ms para 50ms
+            duration: 600, // Diminuído o tempo de duração de 800ms para 600ms (mais rápido)
+            origin: 'bottom',
+            distance: '30px', 
+            opacity: 0,
+            // Função de easing mais moderna para maior fluidez
+            easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)', 
+            interval: 100, // Diminuído o intervalo entre elementos de 150ms para 100ms
+            mobile: false
         });
     </script>
+
 </body>
 </html>
