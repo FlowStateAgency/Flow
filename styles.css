@@ -414,17 +414,22 @@ p {
 }
 
 .product-info h3 {
-    font-size: 2.2rem;
+    /* AUMENTADO: De 2.8rem para 3.2rem (Título Principal) */
+    font-size: 3.2rem; 
     color: var(--color-text);
 }
 
 .product-info p {
+    /* AUMENTADO: De 1.15rem para 1.25rem (Texto de Descrição) */
+    font-size: 1.25rem; 
+    line-height: 1.7; 
     color: var(--color-text);
 }
-
 /* Deixa o botão mais bonito e destacado */
 .learn-more {
     display: inline-block;
+    /* AUMENTADO: De 1rem para 1.1rem (opcional) */
+    font-size: 1.1rem; 
     padding: 12px 24px;
     background: var(--color-primary); 
     color: var(--color-white);
