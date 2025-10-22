@@ -65,8 +65,8 @@
 
         <section class="services-hero-page">
             <div class="container">
-                <h1 class="page-title">Nascemos da paixão por criar</h1>
-                <p class="page-subtitle">A flow state é uma agência que mistura autenticidade, inovação e crescimento em um único lugar.</p>
+                <h1 class="page-title" data-scroll>Nascemos da paixão por criar</h1>
+                <p class="page-subtitle" data-scroll>A flow state é uma agência que mistura autenticidade, inovação e crescimento em um único lugar.</p>
             </div>
         </section>
 
@@ -74,12 +74,12 @@
             <div class="container">
                 <div class="about-row">
                     <div class="about-text-content">
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nibh praesent tristique magna sit amet purus gravida.</p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <h3 data-scroll>Lorem Ipsum Dolor</h3>
+                        <p data-scroll>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nibh praesent tristique magna sit amet purus gravida.</p>
+                        <p data-scroll>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                     <div class="about-visual-content">
-                        <div class="about-image-wrapper">
+                        <div class="about-image-wrapper" data-scroll>
                             <img src="imagens/Transparencia.png" alt="Lorem Ipsum">
                         </div>
                     </div>
@@ -87,36 +87,27 @@
 
                 <div class="about-row reverse">
                     <div class="about-text-content">
-                        <h3>Consectetur Adipiscing</h3>
-                        <p>Vitae congue eu consequat ac felis donec et. Accumsan lacus vel facilisis volutpat est velit egestas. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Amet consectetur adipiscing elit duis tristique sollicitudin.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h3 data-scroll>Consectetur Adipiscing</h3>
+                        <p data-scroll>Vitae congue eu consequat ac felis donec et. Accumsan lacus vel facilisis volutpat est velit egestas. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Amet consectetur adipiscing elit duis tristique sollicitudin.</p>
+                        <p data-scroll>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                    <div class="about-visual-content">
-                        <div class="about-video-wrapper">
-                            <video class="about-video" autoplay muted loop playsinline>
-                                <source src="imagens/videocriatividade.mp4" type="video/mp4">
-                                Seu navegador não suporta a tag de vídeo.
-                            </video>
-                        </div>
+                    <div class="about-video-container" data-scroll>
+                        <video class="about-video" autoplay muted loop>
+                            <source src="imagens/videomttrap.mp4" type="video/mp4">
+                            Seu navegador não suporta a tag de vídeo.
+                        </video>
                     </div>
                 </div>
-            </div>
-        </section>
-
-   
-        </section>
                 </div>
+        </section>
+
+        <section class="section cta-final">
+            <div class="container services-cta-container">
+                <h2 data-scroll>Pronto para Começar?</h2>
+                <p data-scroll>Pare de perder tempo olhando os outros crescerem e começe essa nova fase agora mesmo</p>
+                <a href="mailto:agencyflowstate@gmail.com" class="btn" data-scroll>Fale com a Flow</a>
             </div>
         </section>
-       <section class="section cta-final">
-        <div class="container services-cta-container">
-            <h2>Pronto para Começar?</h2>
-            <p>Pare de perder tempo olhando os outros crescerem e começe essa nova fase agora mesmo
-</p>
-            <a href="mailto:agencyflowstate@gmail.com" class="btn">Fale com a Flow</a>
-        </div>
-    </section>
-
 
     </main>
     
@@ -144,8 +135,10 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script> 
+    
     <script>
-        // Cole aqui todos os seus scripts JS do final da página original
+        // Scripts originais
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
@@ -192,8 +185,17 @@
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
-    </script>
 
+        // INICIALIZAÇÃO DO SCROLLREVEAL
+        ScrollReveal().reveal('[data-scroll]', {
+            delay: 200, 
+            duration: 800, // Duração da animação
+            origin: 'bottom', 
+            distance: '30px', // Distância que o elemento sobe
+            opacity: 0, // Inicia transparente
+            easing: 'ease-in-out', 
+            interval: 100 // Aplica um pequeno atraso em elementos irmãos (útil para listas)
+        });
+    </script>
 </body>
 </html>
-
