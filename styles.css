@@ -1,4 +1,4 @@
-/*/*
+/*
     ========================================
     |             ESTILOS GLOBAIS          |
     ========================================
@@ -652,6 +652,10 @@ p {
 
 /* styles.css */
 
+/* ... [Código Anterior - Seção do Footer] ... */
+
+/* styles.css */
+
 .about-us-section {
     padding: 80px 0;
     background-color: var(--color-white);
@@ -698,9 +702,10 @@ p {
 
 .about-video-wrapper,
 .about-image-wrapper {
-    border-radius: 20px;
+    /* MODIFICADO: Borda arredondada removida */
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: none; 
 }
 
 .about-video-wrapper video,
@@ -708,9 +713,11 @@ p {
     width: 100%;
     height: auto;
     display: block;
+    /* MODIFICADO: Borda arredondada removida da imagem/vídeo interno */
+    border-radius: 0;
 }
 
-/* Responsividade para a nova seção */
+
 @media (max-width: 900px) {
     .about-row,
     .about-row.reverse {
@@ -1660,6 +1667,32 @@ p {
     margin: 0 auto; /* Centraliza a citação */
     color: var(--color-text);
 }
+/*
+    ========================================
+    |    AJUSTES PARA TABLETS E NOTEBOOKS MENORES     |
+    ========================================
+*/
+@media (max-width: 1200px) {
+    /* Limita o container principal para evitar que o conteúdo fique esticado demais */
+    .container {
+        max-width: 90%; 
+        padding: 0 15px; 
+    }
 }
 
 
+/*
+    ========================================
+    |    AJUSTES PARA TABLETS (Força 2 colunas)     |
+    ========================================
+*/
+@media (max-width: 992px) {
+    /* Aplica esta regra para forçar 2 colunas em tablets e telas 
+       pequenas, prevenindo que 4 cards fiquem apertados.
+    */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Garante no máximo 2 colunas de 300px */
+        gap: 25px;
+}
+}
+}
