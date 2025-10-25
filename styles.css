@@ -1612,6 +1612,60 @@ p {
 }
 /*
     ========================================
+    |     CONFIGURAÇÃO DA GRADE DE SERVIÇOS |
+    ========================================
+*/
+/* 1. LAYOUT PADRÃO (Telas LARGAS - 4 colunas em 1 linha) */
+
+
+.services-grid-section .container {
+   
+}
+
+.services-grid {
+    display: grid;
+    /* 4 colunas de largura igual (1fr) */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; /* Espaçamento entre os cards */
+    margin-top: 40px;
+}
+
+/*
+    ========================================
+    |     AJUSTES DE RESPONSIVIDADE         |
+    ========================================
+*/
+
+/* 2. MEDIA QUERY PARA O LAYOUT 2x2 (Elimina o 3x1) */
+/* Se a largura da tela for menor ou igual a 1200px (ajuste o valor se necessário),
+   forçamos a grade a ter apenas 2 colunas. */
+@media (max-width: 1600px) {
+    .services-grid {
+        /* FORÇA EXATAMENTE 2 COLUNAS IGUAIS.
+           Isso garante que 4 cards sempre fiquem 2x2. */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 25px;
+    }
+}
+
+/* 3. MEDIA QUERY PARA O LAYOUT 1x4 (Mobile) */
+/* Em telas muito pequenas, volta para 1 coluna */
+@media (max-width: 650px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Ajustes nos cards para telas pequenas */
+    .services-grid .service-card {
+        padding: 20px;
+    }
+}
+
+
+
+/*
+    ========================================
     |        ESTILOS PÁGINA DE SUPORTE     |
     ========================================
 */
@@ -1683,21 +1737,5 @@ p {
         max-width: 90%; 
         padding: 0 15px; 
     }
-}
-
-
-/*
-    ========================================
-    |    AJUSTES PARA TABLETS (Força 2 colunas)     |
-    ========================================
-*/
-@media (max-width: 992px) {
-    /* Aplica esta regra para forçar 2 colunas em tablets e telas 
-       pequenas, prevenindo que 4 cards fiquem apertados.
-    */
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Garante no máximo 2 colunas de 300px */
-        gap: 25px;
-}
 }
 }
