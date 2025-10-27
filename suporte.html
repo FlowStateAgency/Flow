@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato - Flow State Agency</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="imagens/logoflowmenorzinho-Photoroom.png">
+
+    <style>
+        /*
+            ========================================
+            |       CSS EMBUTIDO PARA A PÁGINA     |
+            ========================================
+        */
+
+        /* ESTILOS GLOBAIS (Baseado no seu CSS original) */
+        :root {
+            --color-primary: #093512;
+            --color-secondary: #0c9500;
+            --color-text: #333;
+            --color-light-background: #f9f9f9;
+            --color-white: #fff;
+            --color-gray-line: #e0e0e0;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-white);
+            line-height: 1.6;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            /* Adicionado para compensar o header fixo */
+            padding-top: 80px; 
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1980px;
+            margin: auto;
+        }
+        
+        /* HEADER (Ajustado para ser sólido e ocultável) */
+        .site-header {
+            background-color: var(--color-white); 
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            top: 0; 
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        
+        .site-header.header-hidden {
+            top: -80px; 
+        }
+
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { width: 50px; height: auto; transition: transform 0.3s ease; pointer-events: auto; }
+        .logo img:hover { transform: scale(1.1); }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { text-decoration: none; color: var(--color-text); font-weight: 500; position: relative; overflow: hidden; padding: 0; transition: none; height: 1.2em; }
+        .link-text-container { display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .roulette-link span { display: block; width: 100%; text-align: center; line-height: 1.2em; padding: 0; }
+        .roulette-link:hover .link-text-container { transform: translateY(-50%); }
+        .cta-button a { text-decoration: none; padding: 10px 20px; background: var(--color-primary); color: var(--color-white); border-radius: 4px; font-weight: 600; transition: background 0.2s; }
+        .cta-button a:hover { background: var(--color-secondary); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--color-text); position: relative; width: 30px; height: 20px; padding: 0; z-index: 1001; }
+        .menu-toggle span { display: block; width: 100%; height: 2px; background: var(--color-text); position: absolute; left: 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+        .menu-toggle span:nth-child(1) { top: 0; }
+        .menu-toggle span:nth-child(2) { top: 9px; }
+        .menu-toggle span:nth-child(3) { top: 18px; }
+        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+        /*
+            ========================================
+            |   ESTILOS PÁGINA DE CONTATO (SPLIT)  |
+            ========================================
+        */
+        .contact-split-section {
+            display: flex;
+            width: 100%;
+        }
+
+        .contact-video-pane {
+            flex: 0 0 50%;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* NOVO CSS PARA O VÍDEO */
+        .contact-video-pane video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            
+            /* Posiciona ambos no mesmo lugar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            /* Estado inicial: invisível (exceto o que o JS vai ativar) */
+            opacity: 0; 
+            transition: opacity 1s ease; /* Transição suave */
+        }
+
+        .contact-video-pane video.active {
+            opacity: 1; /* O vídeo ativo fica visível */
+        }
+        /* FIM DO NOVO CSS PARA O VÍDEO */
+
+
+        .contact-content-pane {
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column; 
+            background-color: var(--color-white); 
+            color: var(--color-text); 
+            padding: 0;
+            height: calc(100vh - 80px); 
+            overflow-y: auto; 
+            align-items: flex-start; 
+        }
+
+        .content-wrapper {
+            max-width: 500px;
+            width: 90%;
+            margin-left: auto; 
+            margin-right: auto; 
+            padding: 80px 0; 
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; 
+            min-height: auto; 
+        }
+
+        .content-wrapper h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .content-wrapper p {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--color-text);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .content-wrapper h3 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .content-wrapper a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .content-wrapper a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* O WIDGET DE HORA */
+        .time-widget {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .time-widget svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .time-widget .time-details span {
+            font-size: 0.8rem;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .time-widget .time-details p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1;
+        }
+
+        /* ESTILOS DO RODAPÉ (Mantidos) */
+        .site-footer {
+            background-color: var(--color-light-background);
+            color: var(--color-text);
+            padding: 40px 0;
+            width: 100%; 
+            border-top: 1px solid var(--color-gray-line);
+            flex-shrink: 0; 
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 500px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-logo img {
+            width: 40px;
+            height: auto;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .footer-info a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-info a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .footer-social a:hover img {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* RESPONSIVIDADE (Mantida) */
+        @media (max-width: 900px) {
+            body {
+                padding-top: 70px;
+            }
+            .contact-split-section {
+                flex-direction: column;
+            }
+
+            .contact-video-pane {
+                flex-basis: 50vh;
+                min-height: 50vh;
+            }
+
+            .contact-content-pane {
+                height: auto; 
+                overflow-y: visible; 
+            }
+            
+            .site-header.header-hidden {
+                top: -70px; 
+            }
+
+            .content-wrapper {
+                padding: 60px 0;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .site-footer {
+                padding: 30px 0;
+            }
+            
+            .footer-content {
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-logo {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .footer-info {
+                width: 100%;
+                order: 3;
+            }
+            .footer-social {
+                order: 2;
+                margin-bottom: 15px;
+            }
+
+            .content-wrapper h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none; flex-direction: column; align-items: center; width: 100%;
+                position: absolute; top: 70px; left: 0; background: var(--color-white);
+                padding: 20px 0; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { height: auto; overflow: visible; padding: 10px 0; }
+            .roulette-link .link-text-container { transform: none; flex-direction: row; }
+            .roulette-link .hover-text { display: none; }
+            .cta-button { display: none; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="imagens/logoflowmenorzinho-Photoroom.png" alt="Logo">
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="services.html" class="roulette-link">
+                    <div class="link-text-container"><span class="original-text">Serviços</span><span class="hover-text">Serviços</span></div>
+                </a>
+                <a href="index.html#cases" class="roulette-link">
+                    <div class="link-text-container"><span class="original-text">Cases</span><span class="hover-text">Cases</span></div>
+                </a>
+                <a href="Sobre.html" class="roulette-link">
+                    <div class="link-text-container"><span class="original-text">Sobre</span><span class="hover-text">Sobre</span></div>
+                </a>
+                <a href="suporte.html" class="roulette-link">
+                    <div class="link-text-container"><span class="original-text">Suporte</span><span class="hover-text">Suporte</span></div>
+                </a>
+            </nav>
+            <div class="cta-button">
+                <a href="contato.html">Contato</a>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main class="contact-split-section">
+        
+        <div class="contact-video-pane">
+            <video id="day-video" class="time-video" autoplay muted loop playsinline>
+                <source src="imagens/videobgbrabodef.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            
+            <video id="night-video" class="time-video" autoplay muted loop playsinline>
+                <source src="imagens/videobgnoitee.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            <div class="time-widget">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                    <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                </svg>
+                <div class="time-details">
+                    <span>Horário em Bento Gonçalves</span>
+                    <p id="local-time">--:--</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-content-pane">
+            <div class="content-wrapper">
+                <h1>Adoraríamos ouvir suas ideias.</h1>
+                <p>Somos criativos, estratégicos e entendemos sua visão. Contrate nossos serviços de branding e e-commerce para aprimorar sua vantagem competitiva com uma perspectiva global e inteligência cultural.</p>
+                
+                <h3>Para propostas e parcerias:</h3>
+                <a href="mailto:agencyflowstate@gmail.com">agencyflowstate@gmail.com</a>
+                
+                <p style="margin-top: 50px; font-size: 0.9rem; color: #999;">
+                   
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #999;">
+                    Entre em contato hoje para iniciar sua próxima jornada de sucesso.
+                </p>
+            </div>
+
+            <footer class="site-footer">
+                <div class="container footer-content">
+                    <div class="footer-logo">
+                        <img src="imagens/logoflowmenorzinho.png" alt="Logo Flow State Agency">
+                    </div>
+        
+                    <div class="footer-info">
+                        <p>© 2025 Flow State Agency. Todos os direitos reservados.</p>
+                        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+                    </div>
+        
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/flowstate.agency" target="_blank" aria-label="Instagram">
+                            <img src="imagens/Vetor500xinstagram.png" alt="Instagram">
+                        </a>
+                        <a href="https://x.com/AgencyFlowState" target="_blank" aria-label="Twitter">
+                            <img src="imagens/Vetor500xtwitter.png" alt="Twitter">
+                        </a>
+                        <a href="https://facebook.com" target="_blank" aria-label="LinkedIn">
+                            <img src="imagens/Vetor500xfacebook.png" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+            </footer>
+            
+        </div>
+    </main>
+
+    <script>
+        // Script de menu e navegação (Mantido)
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+
+        // Script para esconder/mostrar o Header ao rolar (Mantido)
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.site-header');
+            const scrollablePane = document.querySelector('.contact-content-pane');
+            const mediaQuery = window.matchMedia('(max-width: 900px)');
+            let lastScrollY = 0;
+            const scrollThreshold = 80;
+
+            function handleScroll() {
+                const isMobile = mediaQuery.matches;
+                const currentScrollY = isMobile ? window.scrollY : scrollablePane.scrollTop;
+                
+                if (Math.abs(currentScrollY - lastScrollY) < 5) {
+                    lastScrollY = currentScrollY;
+                    return;
+                }
+                
+                const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > scrollThreshold;
+                
+                if (isScrollingDown) {
+                    header.classList.add('header-hidden');
+                } else if (currentScrollY < lastScrollY || currentScrollY <= scrollThreshold) { 
+                    header.classList.remove('header-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+            }
+
+            function setupScrollListeners() {
+                scrollablePane.removeEventListener('scroll', handleScroll);
+                window.removeEventListener('scroll', handleScroll);
+                
+                if (mediaQuery.matches) {
+                    window.addEventListener('scroll', handleScroll);
+                } else {
+                    scrollablePane.addEventListener('scroll', handleScroll);
+                }
+                header.classList.remove('header-hidden');
+            }
+            
+            setupScrollListeners();
+            mediaQuery.addListener(setupScrollListeners);
+        });
+
+        // ===============================================
+        // NOVO SCRIPT PARA VÍDEO DIA/NOITE (Modificado)
+        // ===============================================
+        function setVideoByTime() {
+            const dayVideo = document.getElementById('day-video');
+            const nightVideo = document.getElementById('night-video');
+            const now = new Date();
+            
+            // Pega a hora no fuso horário de Bento Gonçalves (Brasil/São Paulo)
+            const options = { timeZone: 'America/Sao_Paulo', hour: '2-digit', hour12: false };
+            const hourString = now.toLocaleTimeString('en-US', options);
+            const hour = parseInt(hourString.split(':')[0]);
+
+            // Dia: 6h00 (inclusivo) até 18h00 (exclusivo)
+            const isDayTime = (hour >= 6 && hour < 18);
+
+            if (isDayTime) {
+                // Ativa o vídeo do dia e garante que está tocando
+                dayVideo.classList.add('active');
+                nightVideo.classList.remove('active');
+                dayVideo.play().catch(error => console.log("Day video autoplay failed."));
+                nightVideo.pause(); // Pausa o outro
+            } else {
+                // Ativa o vídeo da noite e garante que está tocando
+                nightVideo.classList.add('active');
+                dayVideo.classList.remove('active');
+                nightVideo.play().catch(error => console.log("Night video autoplay failed."));
+                dayVideo.pause(); // Pausa o outro
+            }
+        }
+        
+        // ===============================================
+        // Script para Hora Local e inicialização de Vídeo
+        // ===============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeElement = document.getElementById('local-time');
+            
+            // 1. Define o vídeo correto na carga da página e inicia
+            setVideoByTime();
+            // 2. Inicia o relógio
+            updateTime(); 
+            
+            // Funções de loop:
+            // Atualiza o relógio a cada segundo
+            setInterval(updateTime, 1000);
+            // Verifica a hora do dia a cada minuto (para trocar o vídeo exatamente às 6h ou 18h)
+            setInterval(setVideoByTime, 60000); 
+
+            function updateTime() {
+                const now = new Date();
+                const options = {
+                    timeZone: 'America/Sao_Paulo', // Fuso horário para Bento Gonçalves/Brasil
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                };
+                // Formata o horário de Bento Gonçalves
+                timeElement.textContent = `${now.toLocaleTimeString('pt-BR', options)}`;
+            }
+        });
+    </script>
+</body>
+</html>
