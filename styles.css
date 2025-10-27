@@ -1618,9 +1618,6 @@ p {
 /* 1. LAYOUT PADRÃO (Telas LARGAS - 4 colunas em 1 linha) */
 
 
-.services-grid-section .container {
-   
-}
 
 .services-grid {
     display: grid;
@@ -1725,17 +1722,5 @@ p {
     max-width: 900px;
     margin: 0 auto; /* Centraliza a citação */
     color: var(--color-text);
-}
-/*
-    ========================================
-    |    AJUSTES PARA TABLETS E NOTEBOOKS MENORES     |
-    ========================================
-*/
-@media (max-width: 1200px) {
-    /* Limita o container principal para evitar que o conteúdo fique esticado demais */
-    .container {
-        max-width: 90%; 
-        padding: 0 15px; 
-    }
 }
 }
