@@ -75,28 +75,28 @@
 
     <div class="carousel-container">
         <div class="card-carousel">
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardlegado.jpg" alt="Descrição da imagem 1">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardhero02.jpg" alt="Descrição da imagem 2">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardhero03.png" alt="Descrição da imagem 3">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardhero04.jpg" alt="Descrição da imagem 4">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardlegado.jpg" alt="Descrição da imagem 1">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardhero02.jpg" alt="Descrição da imagem 2">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardhero03.png" alt="Descrição da imagem 3">
             </div>
-            <div class="card-image" data-scroll>
+            <div class="card-image">
                 <img src="imagens/cardhero04.jpg" alt="Descrição da imagem 4">
             </div>
         </div>
@@ -152,10 +152,10 @@
     <div class="container">
         <div class="about-content-new">
             <div class="about-text-new">
-                <h2 data-scroll>Lorem Ipsum Dolor</h2>
-                <p data-scroll>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p data-scroll>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class="btn" data-scroll>Lorem Ipsum</a>
+                <h2 data-scroll>Transformamos influência em legado</h2>
+                <p data-scroll>Não basta ser lembrado — é preciso criar algo que continue existindo mesmo quando você pausa. A Flow nasce do desejo de transformar presença digital em impacto real, conectando propósito e estética em cada detalhe.</p>
+                <p data-scroll>Combinamos design, estratégia e tecnologia para construir marcas que inspiram confiança e autenticidade. Essa é a essência do estado de fluxo: quando tudo flui naturalmente.</p>
+                <a href="#" class="btn" data-scroll>Fale Conosco</a>
             </div>
             
             <div class="about-video-container" data-scroll>
@@ -187,10 +187,10 @@
             </div>
 
             <div class="footer-social">
-                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/flowstate.agency" target="_blank" aria-label="Instagram">
                     <img src="imagens/Vetor500xinstagram.png" alt="Instagram">
                 </a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <a href="https://x.com/AgencyFlowState" target="_blank" aria-label="Twitter">
                     <img src="imagens/Vetor500xtwitter.png" alt="Twitter">
                 </a>
                 <a href="https://facebook.com" target="_blank" aria-label="LinkedIn">
@@ -305,25 +305,27 @@
                 });
             });
         });
-        
-        // Desativa o menu de contexto (clique direito)
+       // Desativa o menu de contexto (clique direito)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
    
-      // CONFIGURAÇÕES ATUALIZADAS PARA ANIMAÇÃO MAIS RÁPIDA E FLUÍDA
+      // ======================================================================
+      // CONFIGURAÇÃO DO SCROLLREVEAL CORRIGIDA
+      // ======================================================================
         ScrollReveal().reveal('[data-scroll]', {
-            delay: 50, // Diminuído o atraso de 150ms para 50ms
-            duration: 600, // Diminuído o tempo de duração de 800ms para 600ms (mais rápido)
+            delay: 50,
+            duration: 600,
             origin: 'bottom',
             distance: '30px', 
             opacity: 0,
-            // Função de easing mais moderna para maior fluidez
             easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)', 
-            interval: 100, // Diminuído o intervalo entre elementos de 150ms para 100ms
-            mobile: false
+            interval: 100, 
+            // CORREÇÃO: Alterado para 'true' para que as animações
+            // funcionem também em dispositivos móveis e telas menores.
+            mobile: true,
+            // Adicionado para garantir que a animação não se repita
+            // ao rolar para cima e para baixo.
+            reset: false 
         });
     </script>
-
-</body>
-</html>
