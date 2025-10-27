@@ -43,7 +43,7 @@
                         <span class="hover-text">Sobre</span>
                     </div>
                 </a>
-                <a href="index.html#blog" class="roulette-link">
+                <a href="suporte.html" class="roulette-link">
                     <div class="link-text-container">
                         <span class="original-text">Suporte</span>
                         <span class="hover-text">Suporte</span>
@@ -74,9 +74,9 @@
             <div class="container">
                 <div class="about-row">
                     <div class="about-text-content">
-                        <h3 data-scroll>Lorem Ipsum Dolor</h3>
-                        <p data-scroll>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nibh praesent tristique magna sit amet purus gravida.</p>
-                        <p data-scroll>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <h3 data-scroll>Autenticidade como ponto de partida</h3>
+                        <p data-scroll>Antes de qualquer estratégia, vem a essência. Acreditamos que cada criador, marca ou projeto tem uma energia única — e é essa identidade que guia tudo o que fazemos.</p>
+                        <p data-scroll>Por isso, cada detalhe do nosso trabalho é pensado para refletir quem você é, e não apenas o que você faz.</p>
                     </div>
                     <div class="about-visual-content">
                         <div class="about-image-wrapper" data-scroll>
@@ -87,9 +87,9 @@
 
                 <div class="about-row reverse">
                     <div class="about-text-content">
-                        <h3 data-scroll>Consectetur Adipiscing</h3>
-                        <p data-scroll>Vitae congue eu consequat ac felis donec et. Accumsan lacus vel facilisis volutpat est velit egestas. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Amet consectetur adipiscing elit duis tristique sollicitudin.</p>
-                        <p data-scroll>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h3 data-scroll>Fluxo entre arte e estratégia</h3>
+                        <p data-scroll>Na Flow, unimos criatividade e método. É o encontro entre o intuitivo e o planejado — onde ideias se tornam marcas e marcas se tornam experiências.</p>
+                        <p data-scroll>Cada projeto nasce de uma visão e se expande através da colaboração. Esse é o nosso estado de fluxo.</p>
                     </div>
                     <div class="about-video-container" data-scroll>
                         <video class="about-video" autoplay muted loop>
@@ -122,9 +122,9 @@
             </div>
             <div class="footer-social">
                 <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                    <img src="imagens/Vetor500xinstagram.png" alt="Instagram">
+                    <img src="https://www.instagram.com/flowstate.agency" alt="Instagram">
                 </a>
-                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <a href="https://x.com/AgencyFlowState" target="_blank" aria-label="Twitter">
                     <img src="imagens/Vetor500xtwitter.png" alt="Twitter">
                 </a>
                 <a href="https://facebook.com" target="_blank" aria-label="LinkedIn">
@@ -186,15 +186,24 @@
             e.preventDefault();
         });
 
-        // INICIALIZAÇÃO DO SCROLLREVEAL
+        // Desativa o menu de contexto (clique direito)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+   
+    // CONFIGURAÇÕES ATUALIZADAS PARA ANIMAÇÃO MAIS RÁPIDA E FLUÍDA
         ScrollReveal().reveal('[data-scroll]', {
-            delay: 200, 
-            duration: 800, // Duração da animação
-            origin: 'bottom', 
-            distance: '30px', // Distância que o elemento sobe
-            opacity: 0, // Inicia transparente
-            easing: 'ease-in-out', 
-            interval: 100 // Aplica um pequeno atraso em elementos irmãos (útil para listas)
+            delay: 50,
+            duration: 600,
+            origin: 'bottom',
+            distance: '30px', 
+            opacity: 0,
+            easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)', 
+            interval: 100,
+            // CORRIGIDO: Habilita a animação em celulares e telas menores.
+            mobile: true,
+            // CORRIGIDO: Garante que a animação só aconteça uma vez.
+            reset: false 
         });
     </script>
 </body>
