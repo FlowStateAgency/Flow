@@ -63,6 +63,30 @@
         </div>
     </section>
 
+    <div class="section about">
+        <div class="container">
+            <div class="about-content-new">
+                <div class="about-text-new">
+                    <h2 data-scroll>Mais do que serviço, um movimento</h2>
+                    <p data-scroll>Nosso trabalho não é apenas entregar resultados — é criar conexões duradouras entre pessoas e ideias. Cada projeto é uma parceria construída em confiança, visão e autenticidade.</p>
+                    <p data-scroll>Trabalhamos com criadores que entendem que o futuro da influência está em marcas com alma. Se esse é o seu caso, o próximo passo é simples.</p>
+                    <a href="#" class="btn" data-scroll>Fale Conosco</a>
+                </div>
+                
+               <div class="about-video-container" data-scroll>
+                    <lottie-player 
+                        src="assets/Maskflow.json"
+                        background="transparent"
+                        speed="1" 
+                        style="width: 100%; height: 100%; border-radius: 20px;" 
+                        loop 
+                        autoplay>
+                    </lottie-player>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="services-grid-section section">
         <div class="container">
             <div class="services-grid">
@@ -70,7 +94,7 @@
                 <div class="service-card" data-scroll>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="imagens/iconeestrategia.jpg" alt="Ícone de Estratégia">
+                           
                         </div>
                         <h3>Estratégia e Identidade</h3>
                         <p>Analisamos seu público e sua voz e escolhemos o que será mais autêntico e que se conecta com seus seguidores para representar quem você realmente é na internet.</p>
@@ -87,7 +111,7 @@
                 <div class="service-card" data-scroll>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="imagens/iconeproduçao.jpg" alt="Ícone de Monetização">
+                           
                         </div>
                         <h3>Designs Exclusivos</h3>
                         <p>De camisetas a moletons e quadros, produzimos designs únicos que representam sua identidade, que passam a sua mensagem e se conectam cada vez mais com seu publico.</p>
@@ -104,16 +128,16 @@
                 <div class="service-card" data-scroll>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="imagens/iconelucro.jpg" alt="Ícone de Produção">
+                           
                         </div>
                         <h3>Loja Online Completa</h3>
                         <p>Construímos uma loja online profissional online e conectada a todo o nosso sistema de fornecedores, pronta para vender com 1 clique pelo modelo Print on Demand de produção.</p>
- <ul>
-  <li>Desenvolvimento completo da sua loja personalizada</li>
-  <li>Integração com fornecedores e automações de envio</li>
-  <li>Design funcional e experiência otimizada</li>
-  <li>Pronta para vender desde o primeiro clique</li>
-</ul>
+                         <ul>
+                          <li>Desenvolvimento completo da sua loja personalizada</li>
+                          <li>Integração com fornecedores e automações de envio</li>
+                          <li>Design funcional e experiência otimizada</li>
+                          <li>Pronta para vender desde o primeiro clique</li>
+                        </ul>
 
                     </div>
                 </div>
@@ -121,43 +145,22 @@
                 <div class="service-card" data-scroll>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="imagens/iconecrescimento.jpg" alt="Ícone de Crescimento">
+                          
                         </div>
                         <h3>Marketing e Gestão </h3>
                         <p>Executamos uma estratégia de marketing pensada em gerar vontade desde o dia zero e deixar sua audiência preparada pro lançamento e com gestão contínua mês a mês, com novas coleções e mais novidades.</p>
-<ul>
-  <li>Estratégia de lançamento desde o planejamento inicial</li>
-  <li>Campanhas que despertam desejo e engajamento</li>
-  <li>Gestão mensal com foco em crescimento contínuo</li>
-  <li>Atualizações e coleções exclusivas para o público</li>
-</ul>
-
+                        <ul>
+                          <li>Estratégia de lançamento desde o planejamento inicial</li>
+                          <li>Campanhas que despertam desejo e engajamento</li>
+                          <li>Gestão mensal com foco em crescimento contínuo</li>
+                          <li>Atualizações e coleções exclusivas para o público</li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
-
-    <div class="section about">
-    <div class="container">
-        <div class="about-content-new">
-            <div class="about-text-new">
-                <h2 data-scroll>Mais do que serviço, um movimento</h2>
-                <p data-scroll>Nosso trabalho não é apenas entregar resultados — é criar conexões duradouras entre pessoas e ideias. Cada projeto é uma parceria construída em confiança, visão e autenticidade.</p>
-                <p data-scroll>Trabalhamos com criadores que entendem que o futuro da influência está em marcas com alma. Se esse é o seu caso, o próximo passo é simples.</p>
-                <a href="#" class="btn" data-scroll>Lorem Ipsum</a>
-            </div>
-            
-            <div class="about-video-container" data-scroll>
-                <video class="about-video" autoplay muted loop>
-                    <source src="imagens/videotstsobre0002.mp4" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
-            </div>
-        </div>
-    </div>
-</div>
 
     <section class="section cta-final">
         <div class="container services-cta-container">
@@ -191,6 +194,7 @@
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script> 
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <script>
         // Scripts originais
@@ -215,22 +219,7 @@
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const preloader = document.querySelector('.preloader');
-            // Verifica se o scroll já está desativado na próxima linha, evitando repetição desnecessária
-            if (sessionStorage.getItem('preloaderShown')) {
-                preloader.classList.add('hidden');
-                document.body.style.overflow = ''; // Garante que o scroll volta se for a segunda visita
-            } else {
-                const preloaderVideo = document.querySelector('.preloader-video');
-                // Ativa o scroll apenas após o vídeo terminar
-                preloaderVideo.addEventListener('ended', () => {
-                    preloader.classList.add('hidden');
-                    document.body.style.overflow = '';
-                });
-                sessionStorage.setItem('preloaderShown', 'true');
-            }
-        });
+
         
           // Desativa o menu de contexto (clique direito)
         document.addEventListener('contextmenu', function(e) {
@@ -252,5 +241,6 @@
             reset: false 
         });
     </script>
-</body>
+
+    </body>
 </html>
