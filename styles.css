@@ -933,41 +933,95 @@ p {
   to { --angle: 360deg; }
 }
 
+/* ========================================
+    |     NOVO ESTILO SERVICE CARD (NEUMORFISMO) 
+    ========================================
+*/
+.service-card {
+    position: relative;
+    padding: 35px 30px; /* Movemos o padding para o card principal */
+    border-radius: 20px; /* Mesmo arredondamento do product-card */
+    background: var(--color-light-background); /* Fundo necessário para o efeito */
+    
+    /* Sombra externa (Efeito de relevo igual da Home) */
+    box-shadow: 
+        10px 10px 20px rgba(0, 0, 0, 0.05), 
+        -10px -10px 20px rgba(255, 255, 255, 1);
+    
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Efeito de "afundar" o card ao passar o mouse */
+.service-card:hover {
+    transform: scale(0.98);
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.05),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Desativa a animação antiga da borda colorida */
 .service-card::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250%;
-    height: 250%;
-    z-index: 1;
-    background: conic-gradient(
-        from var(--angle),
-        transparent 20%,
-        var(--color-secondary),
-        var(--color-primary),
-        transparent 80%
-    );
-    transform: translate(-50%, -50%);
-    animation: rotate-gradient 6s linear infinite;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    display: none !important; 
 }
 
-.service-card:hover::before {
-    opacity: 1;
-}
-
-/* Conteúdo interno do card */
+/* Ajusta o conteúdo interno para se mesclar ao novo container */
 .card-content {
     position: relative;
     z-index: 2;
-    background: var(--color-white);
-    padding: 35px 30px;
-    border-radius: 14px; /* Menor que o card pai */
-    height: 100%;
+    background: transparent; /* Remove o fundo branco antigo */
+    padding: 0; /* O padding agora é controlado pelo .service-card */
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+
+/* Mantendo os estilos dos seus textos e ícones... */
+.card-icon {
+    margin-bottom: 20px;
+}
+
+.card-icon img {
+    width: 45px;
+    height: 45px;
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.7;
+    flex-grow: 1; /* Empurra a lista para baixo mantendo o alinhamento */
+}
+
+.card-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.card-content ul li {
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.card-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--color-secondary);
+    font-weight: bold;
 }
 
 .card-icon {
@@ -1723,4 +1777,72 @@ p {
     margin: 0 auto; /* Centraliza a citação */
     color: var(--color-text);
 }
+}/* ========================================
+   |          PÁGINA DE SUPORTE           |
+   ========================================
+*/
+
+.support-wrapper {
+    padding: 160px 20px 100px; /* Espaço para o header fixo */
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+}
+
+.support-content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Card inspirado no seu .product-card, mas específico para suporte */
+.support-card {
+    background: var(--color-light-background);
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03), 
+                -10px -10px 20px rgba(255, 255, 255, 1);
+}
+
+.support-card h1 {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.support-card p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Botão de Email Estilo "Clean" */
+.btn-clean {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 32px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-clean:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background: rgba(12, 149, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+/* Ajuste mobile para suporte */
+@media (max-width: 768px) {
+    .support-wrapper { padding-top: 120px; }
+    .support-card { padding: 40px 20px; }
+    .support-card h1 { font-size: 1.8rem; }
 }
