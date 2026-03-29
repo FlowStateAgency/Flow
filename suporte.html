@@ -1,1 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suporte - Flow State Agency</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="imagens/logoflowmenorzinho-Photoroom.png">
+</head>
+<body>
 
+   <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="imagens/logoflowmenorzinho-Photoroom.png" alt="Logo">
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="services.html" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Serviços</span>
+                        <span class="hover-text">Serviços</span>
+                    </div>
+                </a>
+                
+                <a href="#cases" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Cases</span>
+                        <span class="hover-text">Cases</span>
+                    </div>
+                </a>
+                
+                <a href="Sobre.html" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Sobre</span>
+                        <span class="hover-text">Sobre</span>
+                    </div>
+                </a>
+                
+                <a href="suporte.html" class="roulette-link">
+                    <div class="link-text-container">
+                        <span class="original-text">Suporte</span>
+                        <span class="hover-text">Suporte</span>
+                    </div>
+                </a>
+            </nav>
+
+            <div class="cta-button">
+                <a href="#contato">Contato</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="support-wrapper">
+        <div class="support-content" data-scroll>
+            <div class="support-card">
+                <h1>Suporte Flow</h1>
+                <p>Precisa de ajuda com seu projeto ou tem alguma dúvida comercial? <br> Fale conosco por e-mail.</p>
+                
+                <a href="mailto:agencyflowstate@gmail.com" class="btn-clean">
+                    agencyflowstate@gmail.com
+                </a>
+            </div>
+        </div>
+    </main>
+
+      <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="imagens/logoflowmenorzinho.png" alt="Logo Flow State Agency">
+            </div>
+
+            <div class="footer-info">
+                <p>© 2025 Flow State Agency. Todos os direitos reservados.</p>
+                <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.instagram.com/flowstate.agency" target="_blank" aria-label="Instagram">
+                    <img src="imagens/Vetor500xinstagram.png" alt="Instagram">
+                </a>
+                <a href="https://x.com/AgencyFlowState" target="_blank" aria-label="Twitter">
+                    <img src="imagens/Vetor500xtwitter.png" alt="Twitter">
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="LinkedIn">
+                    <img src="imagens/Vetor500xfacebook.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('[data-scroll]', {
+            delay: 100,
+            duration: 800,
+            origin: 'bottom',
+            distance: '20px',
+            opacity: 0
+        });
+
+        // Bloqueio de clique direito (conforme seu padrão)
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</body>
+</html>
